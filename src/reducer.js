@@ -1,6 +1,21 @@
 import { CHANGE_NAME, ADD_TASK, CHANGE_PERSON } from './actions';
 
-const reducer = (state, action) => {
+const istore = {
+  name: 'anshuman',
+  wish: ['eat', 'sleep', 'code'],
+  person: [
+    {
+      add1: 'abc',
+      add2: 'def',
+    },
+    {
+      name: 'avi',
+      age: 28,
+    },
+  ],
+};
+
+const reducer = (state = istore, action) => {
   console.log();
   if (action.type === CHANGE_NAME) {
     return {
