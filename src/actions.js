@@ -2,11 +2,12 @@ export const CHANGE_NAME = 'CHANGE_NAME';
 export const ADD_TASK = 'ADD_TASK';
 export const CHANGE_PERSON = 'CHANGE_PERSON';
 
-export const changeNameDsp = async () => {
-  const data = await fetch('https://jsonplaceholder.typicode.com/users');
-  const resp = await data.json();
-  console.log(resp);
-  return { type: CHANGE_NAME, payload: resp.name };
+export const changeNameDsp = () => {
+  return async (dispatch) => {
+    const data = await fetch('https://jsonplaceholder.typicode.com/users');
+    const resp = await data.json();
+    dispatch({ type: CHANGE_NAME, payload: resp[0].name });
+  };
 };
 
 export const newTaskDsp = (ownProps) => {
