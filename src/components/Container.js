@@ -5,17 +5,18 @@ import { connect } from 'react-redux';
 const Container = ({ addtask, newTask, changePerson, personname }) => {
   // console.log(addtask);
   // console.log(newTask);
+
+  const tasklist = addtask.map((cval, index) => {
+    console.log(cval);
+    return <h2 key={index}>{cval}</h2>;
+  });
+
   return (
     <>
-      <h2>
-        Container Component : My hobbies are
-        <div>
-          {addtask.map((cval) => {
-            console.log(cval);
-            return cval;
-          })}
-        </div>
-      </h2>
+      <div>
+        <h2>Container Component : My hobbies are</h2>
+        {tasklist}
+      </div>
       <h2>Person name : {personname}</h2>
       <button
         onClick={() => {
